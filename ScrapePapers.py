@@ -5,9 +5,9 @@ import sys
 import urllib2
 
 CA_papers_dict, newspaper_links, county_names = hp.CaliPapers()
-"""
-print newspaper_links
 
+#print newspaper_links
+"""
 n_dict ={}
 for l in range(len(newspaper_links)):
     request = urllib2.Request(newspaper_links[l])
@@ -27,7 +27,7 @@ for l in range(len(newspaper_links)):
     print soup.prettify()
 """
 
-request = urllib2.Request('http://www.siskiyoudaily.com/')
+request = urllib2.Request('http://www.recordgazette.net/')
 
 try:
     page = urllib2.urlopen(request)
@@ -43,5 +43,5 @@ except urllib2.URLError, e:
 
 content = page.read()
 soup = BeautifulSoup(content)
-#print 'THE SOUP',soup.prettify()
-print 'THE TEXT',soup.text
+print 'THE SOUP',soup.prettify()
+#print 'THE TEXT',soup.text
