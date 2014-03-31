@@ -69,7 +69,9 @@ def get_tweets(username, count):
         url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="+quoteString+"&count="+count+"&exclude_replies=true"
         response = requests.get(url=url, auth=oauth)
         tweets = json.loads(response.content, strict=False)#['statuses']
-        #for tweet in tweets:
-        #     print tweet['text']
-        return tweets
-#get_tweets('somyamathur',2)
+        return_tweet_list = []
+        for tweet in tweets:
+            if tweet['text']:
+                return_tweet_list.append(tweet['text'])
+        return return_tweet_list
+#get_tweets('somyamathur',5)
