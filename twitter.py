@@ -4,6 +4,8 @@ import json
 from requests_oauthlib import OAuth1
 from urlparse import parse_qs
 import urllib2
+from time import sleep
+import sys
 
 
 REQUEST_TOKEN_URL = "https://api.twitter.com/oauth/request_token"
@@ -62,6 +64,7 @@ def get_tweets(username, count):
         print "OAUTH_TOKEN_SECRET: " + secret
         print
     else:
+        sleep(0.2) #wait between API calls
         oauth = get_oauth()
         userstring = '%s'%username
         count = str(count)
@@ -70,8 +73,9 @@ def get_tweets(username, count):
         response = requests.get(url=url, auth=oauth)
         tweets = json.loads(response.content, strict=False)#['statuses']
         return_tweet_list = []
-        for tweet in tweets:
-            if tweet['text']:
+        try:
+            for tweet in tweets:
                 return_tweet_list.append(tweet['text'])
+        except Exception: sys.exc_clear()
         return return_tweet_list
 #get_tweets('somyamathur',5)
