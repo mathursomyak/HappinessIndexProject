@@ -1,0 +1,52 @@
+StAbbv,Sentiment,Subjectivity,Count,region
+al,0.059700732,0.216333223,245,alabama
+az,0.062206197,0.256339841,52,arizona
+wa,0.064728857,0.233876647,285,washington
+ma,0.071093901,0.187105692,357,massachusetts
+ky,0.084838805,0.26741265,175,kentucky
+ny,0.085585032,0.23772044,446,new york
+va,0.086051088,0.226151527,349,virginia
+nv,0.090370318,0.248140306,69,nevada
+oh,0.091431665,0.241569515,158,ohio
+ak,0.104694472,0.287213342,91,alaska
+ar,0.105105959,0.28381374,216,arkansas
+vt,0.11484591,0.267361886,76,vermont
+nm,0.116341803,0.299226641,24,new mexico
+la,0.161010649,0.305893675,169,louisiana
+ca,0,0,0,california
+co,0,0,0,colorado
+ct,0,0,0,connecticut
+dc,0,0,0,district of columbia
+de,0,0,0,delaware
+fl,0,0,0,florida
+ga,0,0,0,georgia
+hi,0,0,0,hawaii
+ia,0,0,0,iowa
+id,0,0,0,idaho
+il,0,0,0,illinois
+in,0,0,0,indiana
+ks,0,0,0,kansas
+md,0,0,0,maryland
+me,0,0,0,maine
+mi,0,0,0,michigan
+mn,0,0,0,minnesota
+mo,0,0,0,missouri
+ms,0,0,0,mississippi
+mt,0,0,0,montana
+nc,0,0,0,north carolina
+nd,0,0,0,north dakota
+ne,0,0,0,nebraska
+nh,0,0,0,new hampshire
+nj,0,0,0,new jersey
+ok,0,0,0,oklahoma
+or,0,0,0,oregon
+pa,0,0,0,pennsylvania
+ri,0,0,0,rhode island
+sc,0,0,0,south carolina
+sd,0,0,0,south dakota
+tn,0,0,0,tennessee
+tx,0,0,0,texas
+ut,0,0,0,utah
+wi,0,0,0,wisconsin
+wv,0,0,0,west virginia
+wy,0,0,0,wyoming

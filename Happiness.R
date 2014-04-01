@@ -1,9 +1,27 @@
 install.packages('ggmap')
 library (ggmap)
+library (plyr)
 
-usa<-map_data('usa')
-usa
-sf<-data.frame(long=-122.26,lat=37.47)
+happyData <- read.csv(file.choose(), header=T)
+View(happyData)
+View(usa)
+usa<-map_data('state')
+mappy <- merge(happyData, usa, by= 'region')
+mappy <- arrange(mappy,order)
+mappy$senti <- as.factor(ceiling(mappy$Sentiment * 100))
+View(mappy)
+states <- data.frame(state.center, state.abb)
+
+s <- ggplot(data = mappy, aes(x=long, y=lat, group = group)) +
+  geom_polygon(aes(fill = senti))+
+  geom_path(color = 'grey', linestyle = 2)+
+  scale_fill_brewer("sentiment", palette = 'PuRd')
+
+s
+
+
+
+
 p <- ggplot(legend=FALSE) +
   geom_polygon(data=usa, aes(x=long, y=lat,group=group)) +
   theme(panel.background = element_blank()) +
@@ -15,3 +33,5 @@ p <- ggplot(legend=FALSE) +
   xlab("") + ylab("")
 
 p
+
+data(usa.)
