@@ -64,7 +64,7 @@ def get_tweets(username, count):
         print "OAUTH_TOKEN_SECRET: " + secret
         print
     else:
-        sleep(0.1) #wait between API calls
+        #sleep(0.1) #wait between API calls
         oauth = get_oauth()
         userstring = '%s'%username
         count = str(count)
@@ -78,7 +78,9 @@ def get_tweets(username, count):
         try:
             for tweet in tweets:
                 return_tweet_list.append(tweet['text'])
-        except Exception: sys.exc_clear()
-        #print 'twitter return',len(return_tweet_list)
+        except Exception:
+            sys.exc_clear()
+            print "Encountered twitter error. Going to wait 15 mins and try again."
+            sleep(900)
         return return_tweet_list
 #get_tweets('somyamathur',5)
