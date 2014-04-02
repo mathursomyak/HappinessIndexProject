@@ -64,7 +64,7 @@ def get_tweets(username, count):
         print "OAUTH_TOKEN_SECRET: " + secret
         print
     else:
-        sleep(0.2) #wait between API calls
+        sleep(0.1) #wait between API calls
         oauth = get_oauth()
         userstring = '%s'%username
         count = str(count)
@@ -72,10 +72,13 @@ def get_tweets(username, count):
         url = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="+quoteString+"&count="+count+"&exclude_replies=true"
         response = requests.get(url=url, auth=oauth)
         tweets = json.loads(response.content, strict=False)#['statuses']
+        if tweets == []: tweets = [{'text':'no tweets'}] #case where nothing returned
         return_tweet_list = []
+        #print 'tweets from twitter file:',tweets
         try:
             for tweet in tweets:
                 return_tweet_list.append(tweet['text'])
         except Exception: sys.exc_clear()
+        #print 'twitter return',len(return_tweet_list)
         return return_tweet_list
 #get_tweets('somyamathur',5)

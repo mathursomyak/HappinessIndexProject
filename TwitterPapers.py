@@ -50,7 +50,7 @@ def makeStateCSV(state, level='all'):
         tweet_list = []
         state_tweets =[] #for return
         for user in usernames:
-            tweets = twitter.get_tweets(user,count=4)
+            tweets = twitter.get_tweets(user,count=3)
             tweet_list.append({'user':user,'tweets':tweets})
             state_tweets.extend(tweets)
     elif level=='country':
@@ -62,11 +62,12 @@ def makeStateCSV(state, level='all'):
     #SENTIMENT ANALYSIS
     def senti(list_of_tweets):
         sentiment,subjectivity = [],[]
+        print 'list of tweets',len(list_of_tweets)
         for tweet in list_of_tweets:
             blob = TextBlob(tweet)
             sentiment.append(blob.sentiment.polarity)
             subjectivity.append(blob.sentiment.subjectivity)
-        sentiment,subjectivity = np.mean(sentiment),np.mean(subjectivity)
+        sentiment,subjectivity = np.mean(sentiment),np.mean(subjectivity)#subjectivity[~np.isnan(subjectivity)].mean()
         return {'sentiment':sentiment, 'subjectivity':subjectivity}
 
     if level=='all':
